@@ -1,17 +1,15 @@
-{{> logo}}
+{{> auth_header}}
 
 <grid cols="[2, 5]">
   <block>
     <h3 >Welcome back!</h3>
     <p>
-      <text>Enter your information to log in, or </text>
-      {{#> small_button }}
-        sign up here
-      {{/small_button}}
+      <text>Enter your information to sign in, or </text>
+      {{#> small_button }}sign up here{{/small_button}}
       <text>.</text>
     </p>
     <p>
-      <text>By logging in, you agree to our </text>
+      <text>By signing in, you agree to our </text>
       {{#> small_button }}terms of service{{/small_button}}
       <text> and </text>
       {{#> small_button }}privacy policy{{/small_button}}
@@ -19,16 +17,10 @@
     </p>
   </block>
   <block intent="default" padding="4">
+    {{> input_with_label label="Email" type="email" placeholder="jane@email.com" }}
+    {{> input_with_label label="Password" type="password" marginTop="4" }}
     <block>
-      <text bold="true" muted="true">Email</text>
-      <input type="email" placeholder="jane@email.com"></input>
-    </block>
-    <block marginTop="2">
-      <text bold="true" muted="true">Password</text>
-      <input type="password"></input>
-    </block>
-    <block>
-      <button intent="primary">Submit</button>
+      <button intent="primary" marginTop="6">Submit</button>
       <block flexDirection="row" justifyContent="flex-end" marginTop="2">
         {{#> small_button }}
           <text muted="true" intent="primary">Forgot your password?</text>

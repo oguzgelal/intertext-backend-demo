@@ -14,12 +14,25 @@ const fakeUser = {
 router.post('/', function(req, res, next) {
   const token = get(res, 'body.state.user.token')
   
-  res.render('recipes/login');
+  res.render('recipes/signin');
   // if (!token) {
   // } else {
   //   res.render('recipes/home');
   // }
   
+});
+
+/**
+ * sign in screen
+ */
+ router.post('/signin', function(req, res, next) {
+  res.render('recipes/signin');
+});
+router.post('/signup', function(req, res, next) {
+  res.render('recipes/signup');
+});
+router.post('/forgot', function(req, res, next) {
+  res.render('recipes/forgot');
 });
 
 module.exports = router;

@@ -1,0 +1,33 @@
+{{> auth_header}}
+
+<grid cols="[2, 5]">
+  <block>
+    <h3 >Signing up!</h3>
+    <p>
+      <text>Let's get you started! Please enter the following information to sign up.</text>
+    </p>
+    <p>
+      <text>Already have an account? </text>
+      {{#> small_button }}sign in here{{/small_button}}
+      <text>.</text>
+    </p>
+    <p>
+      <text>By signing in, you agree to our </text>
+      {{#> small_button }}terms of service{{/small_button}}
+      <text> and </text>
+      {{#> small_button }}privacy policy{{/small_button}}
+      <text>.</text>
+    </p>
+  </block>
+  <block intent="default" padding="4">
+    <block flexDirection="row">
+      {{> input_with_label label="First Name" placeholder="Jane" }}
+      {{> input_with_label label="Last Name" placeholder="Doe" marginLeft="6" }}
+    </block>
+    {{> input_with_label label="Email" type="email" placeholder="jane@email.com" marginTop="4" }}
+    {{> input_with_label label="Password" type="password" marginTop="4" }}
+    <button intent="primary" marginTop="6">Sign Up</button>
+  </block>
+</grid>
+
+{{> footer}}

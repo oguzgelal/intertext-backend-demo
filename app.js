@@ -12,7 +12,13 @@ var recipesRouter = require('./routes/recipes');
 var app = express();
 
 // handlebars settings
-app.engine('hbs', hbs({ extname: '.hbs' }));
+app.engine('hbs', hbs({
+  extname: '.hbs',
+  partialsDir: [
+    `${__dirname}/views/partials`,
+    `${__dirname}/views/partials/logo`,
+  ]
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

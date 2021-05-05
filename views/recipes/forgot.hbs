@@ -1,0 +1,18 @@
+{{> auth_header}}
+
+<grid cols="[2, 5]">
+  <block>
+    <h3 >Forgot password?</h3>
+    <p>
+      <text>Enter the email you used to sign up with. Remember your password? </text>
+      {{#> small_button }}sign in here{{/small_button}}
+      <text>.</text>
+    </p>
+  </block>
+  <block intent="default" padding="4">
+    {{> input_with_label label="Email" type="email" placeholder="jane@email.com" }}
+    <button intent="primary" marginTop="6">Send Reset Code</button>
+  </block>
+</grid>
+
+{{> footer}}
