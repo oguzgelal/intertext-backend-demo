@@ -1,13 +1,8 @@
-<block></block>
-<block alignItems="center" marginBottom="0">
-  <h1 marginBottom="0">Recipe App</h1>
-</block>
-
-{{> separator }}
+{{> logo}}
 
 <grid cols="[2, 5]">
   <block>
-    <h3>Welcome back</h3>
+    <h3 >Welcome back!</h3>
     <p>
       <text>Enter your information to log in, or </text>
       {{#> small_button }}
@@ -33,12 +28,14 @@
       <input type="password"></input>
     </block>
     <block>
-      <button>Submit</button>
-      <block alignItems="flex-end">
+      <button intent="primary">Submit</button>
+      <block flexDirection="row" justifyContent="flex-end" marginTop="2">
         {{#> small_button }}
-          <text muted="true">Forgot your password?</text>
+          <text muted="true" intent="primary">Forgot your password?</text>
         {{/small_button}}
       </block>
     </block>
   </block>
 </grid>
+
+{{> footer}}
