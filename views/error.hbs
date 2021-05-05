@@ -9,3 +9,22 @@
     <p intent="error">{{error.stack}}</p>
   </collapse>
 </block>
+
+
+<form endpoint="/todo/save">
+  <input name="item_title"></input>
+  <input name="item_description"></input>
+  <button>Submit</button>
+</form>
+
+<interval delay="1000">
+  <post endpoint="/refresh"></post>
+</interval>
+
+<state key="current_page">4</state>
+<button>
+  Next Page
+  <button.onClick>
+    <post endpoint="/items/next_page"></post>
+  </button.onClick>
+</button>

@@ -1,0 +1,19 @@
+<h3>To do ({{ itemsToDo.length }})</h3>
+
+{{#each itemsToDo}}
+  <block intent="default" flexDirection="row" alignItems="center" paddingLeft="4">
+    <text flexGrow="1">{{this.title}}</text>
+    <button intent="error">Remove</button>
+    <button intent="success" marginLeft="2">Done</button>
+  </block>
+{{/each}}
+
+
+<h3>Done ({{ itemsDone.length }})</h3>
+
+{{#each itemsDone}}
+  <block intent="default" flexDirection="row" alignItems="center" paddingLeft="4">
+    <text flexGrow="1">{{this.title}}</text>
+    <button intent="error">Remove</button>
+  </block>
+{{/each}}

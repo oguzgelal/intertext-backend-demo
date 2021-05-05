@@ -1,0 +1,44 @@
+<block></block>
+<block alignItems="center" marginBottom="0">
+  <h1 marginBottom="0">Recipe App</h1>
+</block>
+
+{{> separator }}
+
+<grid cols="[2, 5]">
+  <block>
+    <h3>Welcome back</h3>
+    <p>
+      <text>Enter your information to log in, or </text>
+      {{#> small_button }}
+        sign up here
+      {{/small_button}}
+      <text>.</text>
+    </p>
+    <p>
+      <text>By logging in, you agree to our </text>
+      {{#> small_button }}terms of service{{/small_button}}
+      <text> and </text>
+      {{#> small_button }}privacy policy{{/small_button}}
+      <text>.</text>
+    </p>
+  </block>
+  <block intent="default" padding="4">
+    <block>
+      <text bold="true" muted="true">Email</text>
+      <input type="email" placeholder="jane@email.com"></input>
+    </block>
+    <block marginTop="2">
+      <text bold="true" muted="true">Password</text>
+      <input type="password"></input>
+    </block>
+    <block>
+      <button>Submit</button>
+      <block alignItems="flex-end">
+        {{#> small_button }}
+          <text muted="true">Forgot your password?</text>
+        {{/small_button}}
+      </block>
+    </block>
+  </block>
+</grid>
