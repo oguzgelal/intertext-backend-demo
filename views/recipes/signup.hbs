@@ -1,14 +1,19 @@
-{{> auth_header}}
+{{> header auth="true" }}
 
 <grid cols="[2, 5]">
   <block>
-    <h3 >Signing up!</h3>
+    <h3>Signing up!</h3>
     <p>
       <text>Let's get you started! Please enter the following information to sign up.</text>
     </p>
     <p>
       <text>Already have an account? </text>
-      {{#> small_button }}sign in here{{/small_button}}
+      {{#> small_button }}
+        <text>sign in here</text>
+        <button.onClick>
+          <navigate endpoint="/recipes/signin"></navigate>
+        </button.onClick>
+      {{/small_button}}
       <text>.</text>
     </p>
     <p>
@@ -19,14 +24,16 @@
       <text>.</text>
     </p>
   </block>
-  <block intent="default" padding="4">
-    <block flexDirection="row">
-      {{> input_with_label label="First Name" placeholder="Jane" }}
-      {{> input_with_label label="Last Name" placeholder="Doe" marginLeft="6" }}
+  <block>
+    <block intent="default" padding="4">
+      <block flexDirection="row">
+        {{> input_with_label label="First Name" placeholder="Jane" }}
+        {{> input_with_label label="Last Name" placeholder="Doe" marginLeft="6" }}
+      </block>
+      {{> input_with_label label="Email" type="email" placeholder="jane@email.com" marginTop="4" }}
+      {{> input_with_label label="Password" type="password" marginTop="4" }}
+      <button intent="primary" marginTop="6">Sign Up</button>
     </block>
-    {{> input_with_label label="Email" type="email" placeholder="jane@email.com" marginTop="4" }}
-    {{> input_with_label label="Password" type="password" marginTop="4" }}
-    <button intent="primary" marginTop="6">Sign Up</button>
   </block>
 </grid>
 

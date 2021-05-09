@@ -1,11 +1,16 @@
-{{> auth_header}}
+{{> header auth="true" }}
 
 <grid cols="[2, 5]">
   <block>
-    <h3 >Welcome back!</h3>
+    <h3>Welcome back!</h3>
     <p>
       <text>Enter your information to sign in, or </text>
-      {{#> small_button }}sign up here{{/small_button}}
+      {{#> small_button }}
+        <text>sign up here</text>
+        <button.onClick>
+          <navigate endpoint="/recipes/signup"></navigate>
+        </button.onClick>
+      {{/small_button}}
       <text>.</text>
     </p>
     <p>
@@ -16,17 +21,34 @@
       <text>.</text>
     </p>
   </block>
-  <block intent="default" padding="4">
-    {{> input_with_label label="Email" type="email" placeholder="jane@email.com" }}
-    {{> input_with_label label="Password" type="password" marginTop="4" }}
-    <block>
-      <button intent="primary" marginTop="6">Submit</button>
-      <block flexDirection="row" justifyContent="flex-end" marginTop="2">
-        {{#> small_button }}
+  <block>
+    <block intent="{{#if error}}error{{else}}default{{/if}}" padding="4">
+      {{> input_with_label name="signin__email" label="Email" type="email" placeholder="jane@email.com" }}
+      {{> input_with_label name="signin__password" label="Password" type="password" marginTop="4" }}
+      <block>
+
+        {{!-- submit button --}}
+        <button intent="{{#if error}}error{{else}}primary{{/if}}" marginTop="6">
+          <text>Submit</text>
+          <button.onClick>
+            <request endpoint="/recipes/signin"></request>
+          </button.onClick>
+        </button>
+
+        {{!-- forgot button --}}
+        <block flexDirection="row" justifyContent="flex-end" marginTop="2">
+          {{#> small_button }}
           <text muted="true" intent="primary">Forgot your password?</text>
-        {{/small_button}}
+          <button.onClick>
+            <navigate endpoint="/recipes/forgot"></navigate>
+          </button.onClick>
+          {{/small_button}}
+        </block>
       </block>
     </block>
+    {{#if error}}
+    <text marginTop="2" intent="error">{{error}}</text>
+    {{/if}}
   </block>
 </grid>
 

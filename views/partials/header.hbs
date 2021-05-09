@@ -1,0 +1,15 @@
+{{#if auth}}
+
+{{!-- image --}}
+{{#if noimage}}
+{{else}}
+<img src="/images/cooking.jpg"></img>
+{{/if}}
+
+<block alignItems="center" marginTop="8">{{> logo }}</block>
+<block marginTop="8" marginBottom="8"></block>
+
+{{else}}
+<block marginTop="8">{{> logo }}</block>
+<block marginTop="8" marginBottom="8"></block>
+{{/if}}

@@ -1,0 +1,29 @@
+{{!-- todo: make this also a partial --}}
+
+{{> header noimage="true" auth="true" }}
+
+{{!-- handle onload --}}
+<onload>
+
+  {{!-- navigate to endpoint --}}
+  {{#if immediate}}
+  <navigate endpoint="{{ endpoint }}"></navigate>
+  {{else}}
+  <timeout delay="2000">
+    <navigate endpoint="{{ endpoint }}"></navigate>
+  </timeout>
+  {{/if}}
+
+  {{!-- handle states --}}
+  {{#each state}}
+  <state key="{{this.key}}" persist="{{this.persist}}" clear="{{this.clear}}">{{this.value}}</state>
+  {{/each}}
+
+</onload>
+
+<block intent="info" height="24" alignItems="center" justifyContent="center">
+  <h3 intent="info">{{message}}</h3>
+  <text intent="info">Redirecting...</text>
+</block>
+
+{{> footer}}
