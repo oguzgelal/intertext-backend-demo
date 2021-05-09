@@ -1,7 +1,28 @@
-<h1>home</h1>
-<button>
-  <text>sign out</text>
-  <button.onClick>
-    <request endpoint="/recipes/signout"></request>
-  </button.onClick>
-</button>
+{{> header screenHome="true" }}
+
+<block marginTop="22" padding="4">
+  {{#each recipes}}
+
+
+  <block flexDirection="row" intent="default" marginBottom="4">
+    <img src="{{this.image}}" width="24" height="24"></img>
+    <block marginLeft="4">
+      <p margin="0">
+        {{#> button_small}}
+          <text bold="true">{{this.title}}</text>
+        {{/button_small}}
+      </p>
+      <text marginTop="2">
+        {{this.description}}
+      </text>
+      <text marginTop="2">
+        {{#> tag_difficulty recipe=this }}{{/tag_difficulty}}
+        {{#> tag_time recipe=this marginLeft="2" }}{{/tag_time}}
+      </text>
+    </block>
+  </block>
+
+  {{/each}}
+</block>
+
+{{> footer }}

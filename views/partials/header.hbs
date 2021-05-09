@@ -1,6 +1,6 @@
+{{!-- auth header --}}
 {{#if auth}}
 
-{{!-- image --}}
 {{#if noimage}}
 {{else}}
 <img src="/images/cooking.jpg"></img>
@@ -9,7 +9,26 @@
 <block alignItems="center" marginTop="8">{{> logo }}</block>
 <block marginTop="8" marginBottom="8"></block>
 
+{{!-- app header --}}
 {{else}}
-<block marginTop="8">{{> logo }}</block>
-<block marginTop="8" marginBottom="8"></block>
+<block marginTop="8" alignItems="flex-end" flexDirection="row">
+  {{> logo }}
+  <block flexDirection="row" marginLeft="8">
+    {{#> button_header text="Recipes" active=screenHome }}
+    <button.onClick>
+      <navigate endpoint="/recipes"></navigate>
+    </button.onClick>
+    {{/button_header}}
+    {{#> button_header text="Add Recipe" active=screenNew marginLeft="2" }}
+    <button.onClick>
+      <navigate endpoint="/recipes/new"></navigate>
+    </button.onClick>
+    {{/button_header}}
+    {{#> button_header text="Sign Out" marginLeft="2" }}
+    <button.onClick>
+      <request endpoint="/recipes/signout"></request>
+    </button.onClick>
+    {{/button_header}}
+  </block>
+</block>
 {{/if}}

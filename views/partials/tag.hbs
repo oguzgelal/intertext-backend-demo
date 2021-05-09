@@ -1,0 +1,16 @@
+<block
+  paddingTop="0"
+  paddingBottom="0"
+  paddingLeft="1"
+  paddingRight="1"
+  flexGrow="0"
+  display="inline"
+  intent="{{intent}}"
+  marginLeft="{{marginLeft}}"
+>
+  <text bold="true" intent="{{intent}}">{{title}}</text>
+  <text muted="true" intent="{{intent}}" marginLeft="1">{{value}}</text>
+  {{#if suffix}}
+  <text muted="true" intent="{{intent}}">{{suffix}}</text>
+  {{/if}}
+</block>

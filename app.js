@@ -17,7 +17,21 @@ app.engine('hbs', hbs({
   partialsDir: [
     `${__dirname}/views/partials`,
     `${__dirname}/views/partials/logo`,
-  ]
+  ],
+  helpers: {
+    getIntentFromDifficulty: function(difficulty) {
+      console.log('>>', difficulty)
+      if (difficulty === 'Easy') {
+        return 'success'
+      } else if (difficulty === 'Medium') {
+        return 'warning'
+      } else if (difficulty === 'Hard') {
+        return 'error'
+      } else {
+        return 'info'
+      }
+    }
+  }
 }));
 
 // view engine setup

@@ -5,19 +5,19 @@
     <h3>Welcome back!</h3>
     <p>
       <text>Enter your information to sign in, or </text>
-      {{#> small_button }}
+      {{#> button_small }}
         <text>sign up here</text>
         <button.onClick>
           <navigate endpoint="/recipes/signup"></navigate>
         </button.onClick>
-      {{/small_button}}
+      {{/button_small}}
       <text>.</text>
     </p>
     <p>
       <text>By signing in, you agree to our </text>
-      {{#> small_button }}terms of service{{/small_button}}
+      {{#> button_small }}terms of service{{/button_small}}
       <text> and </text>
-      {{#> small_button }}privacy policy{{/small_button}}
+      {{#> button_small }}privacy policy{{/button_small}}
       <text>.</text>
     </p>
   </block>
@@ -37,12 +37,12 @@
 
         {{!-- forgot button --}}
         <block flexDirection="row" justifyContent="flex-end" marginTop="2">
-          {{#> small_button }}
+          {{#> button_small }}
           <text muted="true" intent="primary">Forgot your password?</text>
           <button.onClick>
             <navigate endpoint="/recipes/forgot"></navigate>
           </button.onClick>
-          {{/small_button}}
+          {{/button_small}}
         </block>
       </block>
     </block>

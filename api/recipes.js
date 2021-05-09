@@ -1,18 +1,16 @@
+const { users, recipes } = require('./data')
+
 const delay = () => {
   return new Promise((r) => {
-    setTimeout(r, 1000);
+    // setTimeout(r, 1000);
+    setTimeout(r, 0);
   });
 };
 
-const users = [
-  {
-    email: "test@test.com",
-    password: "test123",
-    token: "test-user-123",
-  },
-];
-
 module.exports = {
+  /**
+   * Sign in
+   */
   signin: async (email, password) => {
     await delay();
     const user = users.filter((u) => u.email === email)[0];
@@ -24,4 +22,9 @@ module.exports = {
       return user;
     }
   },
+
+  recipes: async (filters) => {
+    await delay();
+    return recipes
+  }
 };
