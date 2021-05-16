@@ -105,6 +105,53 @@ const recipes = [
     updatedAt: 1620554347004, // Date.now
     author: 1,
   },
+  {
+    id: 3,
+    image: '/images/r3.png',
+    title: 'Green Gumbo',
+    description: ['A traditional Louisiana gumbo served during Lent that is based on loads of greens such as collards, kale, turnip greens and spinach.'],
+    prepTimeMins: 30,
+    cookTimeMins: 120,
+    timeMins: 150,
+    servings: 12,
+    rating: 8, // over 10
+    difficulty: "Hard",
+    tags: [
+      'Lunch',
+      'Dinner',
+      'Celery',
+      'Onion',
+    ],
+    ingredients: [
+      '1 cup peanut oil, lard or other vegetable oil',
+      '1 1/4 cup flour',
+      '2 cups chopped onion',
+      '1 cup chopped green bell pepper',
+      '1 cup chopped celery',
+      '4 cloves garlic',
+      '2 bay leaves',
+      '1 Tbsp Cajun seasoning',
+      '1 ham hock (optional)',
+      '10 cups water',
+      '3 pounds assorted greens',
+      'Salt',
+      '1 pound smoked andouille sausage (optional)',
+      'File powder to taste (optional)',
+    ],
+    recipe: [
+      'Start the gumbo by making a roux, which will add a lot of flavor and thicken the gumbo. Heat the cup of peanut oil or lard (both are traditional roux ingredients) over medium heat for a minute or two and then stir in the flour. Mix so there are no lumps.',
+      'Cook the roux over medium-low heat until it is the color of chocolate. It is your choice how dark you let your roux go. The darker it is, the better, but once the roux gets dark it can burn easily, so you must stir constantly and keep and eye on it.',
+      'While the roux is cooking, bring the 10 cups of water to a simmer.',
+      'When the roux is dark enough, mix in the chopped onions, celery and green pepper and turn the heat to medium. Let this cook, stirring occasionally, until the vegetables soften. Add the garlic and cook another 1-2 minutes.',
+      'Add the bay leaves, the Cajun spice and slowly stir in the hot water. The roux will seize up at first, but keep stirring and it will all come together in a silky broth.',
+      'Add the ham hock and all the greens. Taste for salt, but remember the ham hock will be salty, so let the broth be a little under-salted for now. If you want to add more Cajun spice, do so now. Cover the pot and simmer gently for 1 hour and 15 minutes.',
+      'Check the ham hock. If the meat is falling off the bone, remove it, discard the bones, chop the meat and return it to the pot. If the hock is not ready, keep simmering the gumbo; ham hocks dont always cook at the same rate.',
+      'Once the hock is ready, add the andouille sausage and cook for another 15 minutes. Serve with file powder at the table.',
+    ],
+    createdAt: 1620554347004, // Date.now
+    updatedAt: 1620554347004, // Date.now
+    author: 1,
+  },
 ];
 
 module.exports = {
@@ -116,7 +163,7 @@ module.exports = {
 
 // {
 //   id: 0,
-//   image: '',
+//   image: '/images/',
 //   title: '',
 //   description: [''],
 //   prepTimeMins: 0,

@@ -31,9 +31,23 @@ const protectedRouteCheck = (req, res, path) => {
 router.post("/", async (req, res, next) => {
   protectedRouteCheck(req, res, route("/"));
 
-  const recipes = await api.recipes()
+  const recipes = await api.recipes();
+  const layout = get(req, "body.persist.layout") || "list";
+  const query = get(req, "body.inputState.query") || "";
+
+  const recipesFiltered = recipes.filter(
+    (recipe) =>
+      recipe.title.toLowerCase().includes(query.toLowerCase()) ||
+      recipe.description.some((i) =>
+        i.toLowerCase().includes(query.toLowerCase())
+      )
+  );
+
   res.render(view("home"), {
-    recipes
+    recipes: recipesFiltered,
+    layout_list: layout === "list",
+    layout_grid: layout === "grid",
+    query,
   });
 });
 

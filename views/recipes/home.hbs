@@ -1,28 +1,104 @@
 {{> header screenHome="true" }}
 
+{{!-- <onload>
+  <state key="layout" persist="true">{{#if layout_list}}list{{else}}grid{{/if}}</state>
+</onload> --}}
+
 <block marginTop="22" padding="4">
-  {{#each recipes}}
 
+  {{!-- settings bar --}}
+  <block flexDirection="row" marginBottom="8">
 
-  <block flexDirection="row" intent="default" marginBottom="4">
-    <img src="{{this.image}}" width="24" height="24"></img>
-    <block marginLeft="4">
-      <p margin="0">
-        {{#> button_small}}
-          <text bold="true">{{this.title}}</text>
-        {{/button_small}}
-      </p>
-      <text marginTop="2">
-        {{this.description}}
-      </text>
-      <text marginTop="2">
-        {{#> tag_difficulty recipe=this }}{{/tag_difficulty}}
-        {{#> tag_time recipe=this marginLeft="2" }}{{/tag_time}}
-      </text>
+    {{!-- search query --}}
+    <block flexDirection="row" alignItems="center" intent="default">
+      <input
+        type="text"
+        placeholder="Search"
+        name="query"
+        margin="0"
+        height="6"
+        padding="0"
+        paddingLeft="2"
+        paddingRight="2"
+      >{{query}}</input>
+      {{#> button_small marginLeft="4" marginRight="2"}}
+        <text>Search</text>
+        <button.onClick>
+          <request endpoint="/recipes"></request>
+        </button.onClick>
+      {{/button_small}}
+    </block>
+    
+    {{!-- layout --}}
+    <block flexDirection="row" alignItems="center" intent="default" marginLeft="4">
+      {{#> button_small}}
+        <text intent="{{#if layout_grid}}primary{{else}}{{/if}}">Grid</text>
+        <button.onClick>
+          <state key="layout" persist="true">grid</state>
+          <request endpoint="/recipes"></request>
+        </button.onClick>
+      {{/button_small}}
+      {{#> button_small}}
+        <text intent="{{#if layout_list}}primary{{else}}{{/if}}">List</text>
+        <button.onClick>
+          <state key="layout" persist="true">list</state>
+          <request endpoint="/recipes"></request>
+        </button.onClick>
+      {{/button_small}}
     </block>
   </block>
 
+  {{!-- grid display --}}
+  {{#if layout_grid}}
+  <grid cols="[1, 1]">
+    {{#each recipes}}
+    <block intent="default" padding="4">
+      <img src="{{this.image}}" width="100%"></img>
+      <block display="inline" marginTop="4">
+        {{#> tag_difficulty recipe=this }}{{/tag_difficulty}}
+        {{#> tag_time recipe=this marginLeft="2" }}{{/tag_time}}
+      </block>
+      <block marginTop="2">
+        <text bold="true">{{this.title}}</text>
+      </block>
+      <block marginTop="2">
+        {{this.description}}
+      </block>
+      <block marginTop="2"  display="inline">
+        {{#> button_small}}
+          <text>Read More...</text>
+        {{/button_small}}
+      </block>
+    </block>
+    {{/each}}
+  </grid>
+  {{/if}}
+
+  {{!-- list display --}}
+  {{#if layout_list}}
+  {{#each recipes}}
+  <block flexDirection="row" marginBottom="4">
+    <img src="{{this.image}}" width="24" height="24"></img>
+    <block marginLeft="4">
+      <p margin="0">
+        <text bold="true">{{this.title}}</text>
+      </p>
+      <p marginTop="0">
+        <text marginRight="2">{{this.description}}</text>
+        {{#> button_small}}
+          <text>Read More...</text>
+        {{/button_small}}
+      </p>
+      
+      <block display="inline" marginTop="1">
+        {{#> tag_difficulty recipe=this }}{{/tag_difficulty}}
+        {{#> tag_time recipe=this marginLeft="2" }}{{/tag_time}}
+      </block>
+    </block>
+  </block>
   {{/each}}
+  {{/if}}
+
 </block>
 
 {{> footer }}
