@@ -1,0 +1,15 @@
+<block
+  marginTop="{{marginTop}}"
+  marginBottom="{{marginBottom}}"
+  marginRight="{{marginRight}}"
+  marginLeft="{{marginLeft}}"
+  width="100%"
+>
+  <text bold="true" muted="true">{{ label }}</text>
+  <select
+    name="{{ name }}"
+    margin="0"
+  >
+    {{> @partial-block }}
+  </select>
+</block>

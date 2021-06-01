@@ -1,11 +1,30 @@
 {{> header screenNew="true" }}
 
-<h1>new</h1>
-<button>
-  <text>sign out</text>
-  <button.onClick>
-    <request endpoint="/recipes/signout"></request>
-  </button.onClick>
-</button>
+<block marginTop="8">
+  {{> input_with_label name="new__title" label="Title" type="text" }}
+  {{> input_with_label name="new__ingredients" label="Ingredients" type="long" marginTop="2" }}
+  {{> input_with_label name="new__recipe" label="Recipe" type="long" marginTop="2" }}
+  <grid cols="[1,1]" marginTop="2">
+    {{> input_with_label name="new__time_prep" label="Prep. Time (mins)" type="number" }}
+    {{> input_with_label name="new__time_cook" label="Cooking Time (mins)" type="number" }}
+    {{#> input_with_select name="new__servings" label="Servings" }}
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="8+">8+</option>
+    {{/input_with_select}}
+    {{#> input_with_select name="new__difficulty" label="Difficulty" }}
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+    {{/input_with_select}}
+  </grid>
+  <button intent="primary" marginTop="4">Save</button>
+</block>
 
 {{> footer }}
